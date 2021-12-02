@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="init" default-destroy-method="destroy">
 
-    <bean id="bakke" class="vasilizas.bean.db.StudentDb">
+    <bean id="bakke" class="vasilizas.bean.db.StudentDb" c:grade-ref="marks" c:groups-ref="group">
         <constructor-arg name="id" value="1"/>
         <constructor-arg name="name" value="Bakke"/>
         <constructor-arg name="age" value="25"/>
@@ -24,11 +27,11 @@
     <property name="name" value="First"/>
     <property name="teacherDb" ref="vasili"/>
     <property name="them" ref="theme"/>
-    <property name="students">
-    <set>
-        <ref bean="bakke"/>
-    </set>
-</property>
+<!--    <property name="students">-->
+<!--&lt;!&ndash;    <set>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ref bean="bakke"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </set>&ndash;&gt;-->
+<!--</property>-->
 </bean>
 
     <bean id="marks" class="vasilizas.bean.db.Marks">
@@ -41,7 +44,7 @@
         </property>
     </bean>
 
-        <bean id="vasili" class="vasilizas.bean.db.TeacherDb">
+        <bean id="vasili" class="vasilizas.bean.db.TeacherDb" p:group-ref="group">
             <constructor-arg name="id" value="1"/>
             <constructor-arg name="name" value="Vasili"/>
             <constructor-arg name="age" value="34"/>
