@@ -10,8 +10,8 @@ import vasilizas.bean.db.StudentDb;
 import vasilizas.bean.db.TeacherDb;
 import vasilizas.bean.db.Themes;
 
-public class App {
-    private static final Logger log = LoggerFactory.getLogger("!!!! Spring = ");
+public class RunWithXML {
+    private static final Logger log = LoggerFactory.getLogger("!!!! Spring : ");
 
     public static void main(String[] args) {
 

@@ -18,16 +18,6 @@ public class Salary {
         this.salary = salary;
     }
 
-    public Salary withSalary(BigDecimal salary) {
-        setSalary(salary);
-        return this;
-    }
-
-    public Salary withId(Integer id) {
-        setId(id);
-        return this;
-    }
-
     @Override
     public String toString() {
         return " " + salary;

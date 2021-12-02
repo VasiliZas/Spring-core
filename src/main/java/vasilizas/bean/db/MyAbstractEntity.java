@@ -17,8 +17,4 @@ public class MyAbstractEntity {
     private String password;
     private int age;
 
-    public MyAbstractEntity withId(Integer id) {
-        setId(id);
-        return this;
-    }
 }
