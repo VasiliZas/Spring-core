@@ -12,6 +12,35 @@
         <constructor-arg name="password" value="passwordBakke"/>
     </bean>
 
+    <bean id="theme" class="vasilizas.bean.db.Themes">
+        <property name="id" value="1"/>
+        <property name="themegroup" value="Running"/>
+        <property name="idgroup" value="1"/>
+        <property name="group" ref="group"/>
+    </bean>
+
+<bean id="group" class="vasilizas.bean.db.Group">
+    <property name="id" value="1"/>
+    <property name="name" value="First"/>
+    <property name="teacherDb" ref="vasili"/>
+    <property name="them" ref="theme"/>
+    <property name="students">
+    <set>
+        <ref bean="bakke"/>
+    </set>
+</property>
+</bean>
+
+    <bean id="marks" class="vasilizas.bean.db.Marks">
+        <property name="id" value="1"/>
+        <property name="grade">
+            <list>
+                <value>88</value>
+                <value>100</value>
+            </list>
+        </property>
+    </bean>
+
         <bean id="vasili" class="vasilizas.bean.db.TeacherDb">
             <constructor-arg name="id" value="1"/>
             <constructor-arg name="name" value="Vasili"/>

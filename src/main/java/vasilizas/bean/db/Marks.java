@@ -2,54 +2,21 @@ package vasilizas.bean.db;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.List;
 import java.util.Objects;
 
 @Data
+@Setter
 @NoArgsConstructor
 public class Marks {
-
     private Integer id;
-    private String theme;
-    private Integer grade;
-    private Integer stuid;
-    private String groups;
-
-    private StudentDb student;
-
-    public StudentDb getStudent() {
-        return student;
-    }
-
-    public void setStudent(StudentDb student) {
-        this.student = student;
-    }
-
-    public Marks withGrade(Integer grade) {
-        setGrade(grade);
-        return this;
-    }
-
-    public Marks withGroup(String group) {
-        setGroups(group);
-        return this;
-    }
-
-    public Marks withTheme(String theme) {
-        setTheme(theme);
-        return this;
-    }
-
-    public Marks withStudentId(Integer id) {
-        setStuid(id);
-        return this;
-    }
+    private List<Integer> grade;
 
     @Override
     public String toString() {
-        return " group = " + groups +
-                " theme = " + theme +
-                " , grade = " + grade;
+        return " grade = " + grade;
     }
 
     @Override
@@ -57,11 +24,11 @@ public class Marks {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Marks marks = (Marks) o;
-        return Objects.equals(id, marks.id) && Objects.equals(theme, marks.theme) && Objects.equals(grade, marks.grade) && Objects.equals(stuid, marks.stuid) && Objects.equals(groups, marks.groups) && Objects.equals(student, marks.student);
+        return Objects.equals(id, marks.id) && Objects.equals(grade, marks.grade);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, theme, grade, stuid, groups, student);
+        return Objects.hash(id, grade);
     }
 }
