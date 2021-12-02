@@ -16,6 +16,9 @@ import java.util.Objects;
 @NoArgsConstructor
 public class StudentDb extends MyAbstractEntity {
 
+    private List<Group> groups = new ArrayList<>();
+    private List<Marks> grade = new LinkedList<>();
+
     public StudentDb(Integer id, String name, String login, String password, int age) {
         super(id, name, login, password, age);
     }
@@ -24,43 +27,6 @@ public class StudentDb extends MyAbstractEntity {
         super(id, name, login, password, age);
         this.groups = groups;
         this.grade = grade;
-    }
-
-    private List<Group> groups = new ArrayList<>();
-
-    private List<Marks> grade = new LinkedList<>();
-
-    public StudentDb withId(int id) {
-        setId(id);
-        return this;
-    }
-
-    public StudentDb withAge(Integer age) {
-        setAge(age);
-        return this;
-    }
-
-
-    public StudentDb withName(String name) {
-        setName(name);
-        return this;
-    }
-
-    public StudentDb withLogin(String login) {
-        setLogin(login);
-        return this;
-    }
-
-    public StudentDb withPassword(String password) {
-        setPassword(password);
-        return this;
-    }
-
-    public StudentDb addMarks(Marks mark) {
-        if (mark != null) {
-            grade.add(mark);
-        }
-        return this;
     }
 
     @Override

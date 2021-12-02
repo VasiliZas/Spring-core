@@ -15,6 +15,9 @@ import java.util.Objects;
 @AllArgsConstructor
 public class TeacherDb extends MyAbstractEntity {
 
+    private Group group;
+    private List<Salary> salary = new LinkedList<>();
+
     public TeacherDb(Integer id, String name, String login, String password, int age, Group group, List<Salary> salary) {
         super(id, name, login, password, age);
         this.group = group;
@@ -24,41 +27,6 @@ public class TeacherDb extends MyAbstractEntity {
     public TeacherDb(Integer id, String name, String login, String password, int age, List<Salary> salary) {
         super(id, name, login, password, age);
         this.salary = salary;
-    }
-
-    private Group group;
-    private List<Salary> salary = new LinkedList<>();
-
-    public TeacherDb withId(int id) {
-        setId(id);
-        return this;
-    }
-
-    public TeacherDb withAge(Integer age) {
-        setAge(age);
-        return this;
-    }
-
-    public TeacherDb withName(String name) {
-        setName(name);
-        return this;
-    }
-
-    public TeacherDb withLogin(String login) {
-        setLogin(login);
-        return this;
-    }
-
-    public TeacherDb withPassword(String password) {
-        setPassword(password);
-        return this;
-    }
-
-    public TeacherDb addSalary(Salary salarys) {
-        if (salary != null) {
-            salary.add(salarys);
-        }
-        return this;
     }
 
     @Override
