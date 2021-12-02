@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bakke" class="vasilizas.bean.db.StudentDb">
+        <constructor-arg name="id" value="1"/>
+        <constructor-arg name="name" value="Bakke"/>
+        <constructor-arg name="age" value="25"/>
+        <constructor-arg name="login" value="loginBakke"/>
+        <constructor-arg name="password" value="passwordBakke"/>
+    </bean>
+
+        <bean id="vasili" class="vasilizas.bean.db.TeacherDb">
+            <constructor-arg name="id" value="1"/>
+            <constructor-arg name="name" value="Vasili"/>
+            <constructor-arg name="age" value="34"/>
+            <constructor-arg name="login" value="loginVasili"/>
+            <constructor-arg name="password" value="passwordVasili"/>
+            <constructor-arg name="salary"  ref="salary"/>
+    </bean>
+
+    <bean id="salary" class="vasilizas.bean.db.Salary">
+        <constructor-arg name="id" value="1"/>
+        <constructor-arg name="salary" value="5000"/>
+    </bean>
+
+</beans>
