@@ -22,7 +22,7 @@
         <property name="group" ref="group"/>
     </bean>
 
-<bean id="group" class="vasilizas.bean.db.Group">
+<bean id="group" class="vasilizas.bean.db.Group " init-method="start" destroy-method="finish">
     <property name="id" value="1"/>
     <property name="name" value="First"/>
     <property name="teacherDb" ref="vasili"/>
@@ -44,7 +44,7 @@
         </property>
     </bean>
 
-        <bean id="vasili" class="vasilizas.bean.db.TeacherDb" p:group-ref="group">
+        <bean id="vasili" class="vasilizas.bean.db.TeacherDb"  p:group-ref="group" >
             <constructor-arg name="id" value="1"/>
             <constructor-arg name="name" value="Vasili"/>
             <constructor-arg name="age" value="34"/>
