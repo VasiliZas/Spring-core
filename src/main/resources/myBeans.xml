@@ -9,11 +9,12 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byType"
 >
     <!--       default-init-method="init" default-destroy-method="destroy">-->
     <context:property-placeholder location= "students.properties"/>
 
-    <bean id="bakke" class="vasilizas.bean.db.StudentDb" c:grade-ref="marks" c:groups-ref="group">
+    <bean id="bakke" class="vasilizas.bean.db.StudentDb" c:grade-ref="marks" >
         <constructor-arg name="id" value="1"/>
         <constructor-arg name="name" value="Bakke"/>
         <constructor-arg name="age" value="25"/>
@@ -39,7 +40,7 @@
         <property name="group" ref="group"/>
     </bean>
 
-    <bean id="group" class="vasilizas.bean.db.Group" autowire="byName" init-method="start" destroy-method="finish">
+    <bean id="group" class="vasilizas.bean.db.Group" init-method="start" destroy-method="finish">
         <property name="id" value="1"/>
         <property name="name" value="First"/>
 <!--        <property name="teacherDb" ref="vasili"/>-->

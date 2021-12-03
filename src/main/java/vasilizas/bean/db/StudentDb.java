@@ -23,6 +23,11 @@ public class StudentDb extends MyAbstractEntity {
         super(id, name, login, password, age);
     }
 
+    public StudentDb(Integer id, String name, String login, String password, int age, List<Marks> grade) {
+        super(id, name, login, password, age);
+        this.grade = grade;
+    }
+
     public StudentDb(Integer id, String name, String login, String password, int age, List<Group> groups, List<Marks> grade) {
         super(id, name, login, password, age);
         this.groups = groups;
@@ -36,8 +41,7 @@ public class StudentDb extends MyAbstractEntity {
                 ", login = " + getLogin() + '\'' +
                 ", password =  " + getPassword() + '\'' +
                 ", age = " + getAge() +
-                ", marks = " + grade + '\'' +
-                ", group = " + groups;
+                ", marks = " + grade ;
     }
 
     @Override
