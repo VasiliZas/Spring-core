@@ -17,7 +17,7 @@ import java.util.Set;
 public class Group implements Serializable {
 
     private static final Logger log = LoggerFactory.getLogger(Group.class);
-    private TeacherDb teacherDb;
+    private TeacherDb vasili;
     private Integer id;
     private String name;
     private Set<StudentDb> students = new HashSet<>();
@@ -33,8 +33,12 @@ public class Group implements Serializable {
 
     @Override
     public String toString() {
-        return "name='" + name + '\'' +
-                ", themes = " + them;
+        return "Group{" +
+                "teacherDb=" + vasili.getName() +
+                ", name='" + name + '\'' +
+                ", students=" + students +
+                ", them=" + them +
+                '}';
     }
 
     @Override
