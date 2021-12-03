@@ -16,12 +16,13 @@ public class RunWithXmlAutowiring {
 
     public static void main(String[] args) {
 
-        ConfigurableApplicationContext context =
-                new ClassPathXmlApplicationContext("myBeans.xml");
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("myBeans.xml");
         context.registerShutdownHook();
 
         StudentDb bakke = (StudentDb) context.getBean("bakke");
         log.info("Student {}", bakke);
+        StudentDb petr = (StudentDb) context.getBean("petr");
+        log.info("Student {}", petr);
         TeacherDb vasili = (TeacherDb) context.getBean("vasili");
         log.info("Teacher {}", vasili);
         Salary salary = context.getBean("salary", Salary.class);
