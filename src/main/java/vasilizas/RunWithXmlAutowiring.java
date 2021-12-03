@@ -2,7 +2,6 @@ package vasilizas;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import vasilizas.bean.db.Group;
@@ -23,8 +22,8 @@ public class RunWithXmlAutowiring {
         log.info("Student {}", bakke);
         StudentDb petr = (StudentDb) context.getBean("petr");
         log.info("Student {}", petr);
-        TeacherDb vasili = (TeacherDb) context.getBean("vasili");
-        log.info("Teacher {}", vasili);
+//        TeacherDb vasili = (TeacherDb) context.getBean("vasili");
+//        log.info("Teacher {}", vasili);
         Salary salary = context.getBean("salary", Salary.class);
         log.info("Salary {}", salary);
         Group group = context.getBean("group", Group.class);

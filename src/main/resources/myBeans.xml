@@ -12,7 +12,18 @@
        default-autowire="byType"
 >
     <!--       default-init-method="init" default-destroy-method="destroy">-->
+
+    <context:annotation-config/>
     <context:property-placeholder location= "students.properties"/>
+
+    <bean id="pavel" class="vasilizas.bean.db.Zauch">
+        <qualifier value="zauch-qualifier"/>
+        <property name="id" value="55"/>
+        <property name="name" value="Pavel"/>
+        <property name="age" value="110"/>
+        <property name="login" value="login"/>
+        <property name="password" value="pasww"/>
+    </bean>
 
     <bean id="bakke" class="vasilizas.bean.db.StudentDb" c:grade-ref="marks" >
         <constructor-arg name="id" value="1"/>
@@ -40,7 +51,7 @@
         <property name="group" ref="group"/>
     </bean>
 
-    <bean id="group" class="vasilizas.bean.db.Group" init-method="start" destroy-method="finish">
+    <bean id="group" class="vasilizas.bean.db.Group"  init-method="start" destroy-method="finish">
         <property name="id" value="1"/>
         <property name="name" value="First"/>
 <!--        <property name="teacherDb" ref="vasili"/>-->
@@ -72,14 +83,14 @@
         </property>
     </bean>
 
-    <bean id="vasili" class="vasilizas.bean.db.TeacherDb"  p:group-ref="group" >
-        <constructor-arg name="id" value="1"/>
-        <constructor-arg name="name" value="Vasili"/>
-        <constructor-arg name="age" value="34"/>
-        <constructor-arg name="login" value="loginVasili"/>
-        <constructor-arg name="password" value="passwordVasili"/>
-        <constructor-arg name="salary"  ref="salary"/>
-    </bean>
+<!--    <bean id="vasili" class="vasilizas.bean.db.TeacherDb"  p:group-ref="group" >-->
+<!--        <constructor-arg name="id" value="1"/>-->
+<!--        <constructor-arg name="name" value="Vasili"/>-->
+<!--        <constructor-arg name="age" value="34"/>-->
+<!--        <constructor-arg name="login" value="loginVasili"/>-->
+<!--        <constructor-arg name="password" value="passwordVasili"/>-->
+<!--        <constructor-arg name="salary"  ref="salary"/>-->
+<!--    </bean>-->
 
     <bean id="salary" class="vasilizas.bean.db.Salary">
         <constructor-arg name="id" value="1"/>
