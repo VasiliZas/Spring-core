@@ -17,7 +17,8 @@
     <context:property-placeholder location= "students.properties"/>
 
     <bean id="pavel" class="vasilizas.bean.db.Zauch">
-        <qualifier value="zauch-qualifier"/>
+<!--        <qualifier value="zauch-qualifier"/>-->
+        <qualifier type="vasilizas.bean.qualifiers.ZauchQualifier"/>
         <property name="id" value="55"/>
         <property name="name" value="Pavel"/>
         <property name="age" value="110"/>
