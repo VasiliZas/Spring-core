@@ -2,15 +2,13 @@ package vasilizas.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import vasilizas.bean.Group;
-import vasilizas.bean.Salary;
 import vasilizas.bean.StudentDb;
-
-import java.util.List;
+import vasilizas.qualifiers.CustomStringQualifier;
 
 @Configuration
 public class StudentConfig {
 
+//    @CustomStringQualifier(name = "Ahmed")
     @Bean
     public StudentDb ahmed() {
         StudentDb ahmed = new StudentDb();

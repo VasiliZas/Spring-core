@@ -17,13 +17,13 @@ public class RunWithJavaConfig {
         ConfigurableApplicationContext context = new AnnotationConfigApplicationContext("vasilizas");
         context.registerShutdownHook();
 
-        StudentDb ahmed = (StudentDb) context.getBean("ahmed");
+        StudentDb ahmed =  context.getBean("ahmed", StudentDb.class);
         log.info("Student {}", ahmed);
 
-        StudentDb ivan = (StudentDb) context.getBean("ivan");
+        StudentDb ivan =  context.getBean("ivan", StudentDb.class);
         log.info("Student {}", ivan);
 
-        TeacherDb thomas = (TeacherDb) context.getBean("thomas");
+        TeacherDb thomas =  context.getBean("thomas", TeacherDb.class);
         log.info("Teacher {}", thomas);
 
         Salary salary = context.getBean("salary", Salary.class);

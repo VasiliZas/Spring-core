@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import vasilizas.bean.Salary;
 import vasilizas.bean.TeacherDb;
+import vasilizas.qualifiers.CustomClassQualifier;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -18,6 +19,7 @@ public class TeacherConfig {
     @Value("${bigSalary.salary}")
     private BigDecimal salary;
 
+    @CustomClassQualifier(clazz = Salary.class)
     @Bean
     public Salary bigSalary() {
         Salary bigSalary = new Salary();
@@ -27,8 +29,8 @@ public class TeacherConfig {
     }
 
     @Bean
-    public TeacherDb thomas(Salary bigSalary) {
-        List<Salary> salaries = List.of(bigSalary);
+    public TeacherDb thomas(@CustomClassQualifier(clazz = Salary.class) Salary salary) {
+        List<Salary> salaries = List.of(salary);
         TeacherDb thomas = new TeacherDb();
         thomas.setGroup(null);
         thomas.setAge(56);

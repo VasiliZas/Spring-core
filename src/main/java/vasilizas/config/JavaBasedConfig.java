@@ -4,17 +4,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import vasilizas.bean.Group;
 import vasilizas.bean.Salary;
+import vasilizas.bean.StudentDb;
 import vasilizas.bean.Themes;
+import vasilizas.qualifiers.CustomStringQualifier;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 @Configuration
 public class JavaBasedConfig {
     @Bean
-    public Group group(Themes themes) {
+    public Group group(@CustomStringQualifier(name = "sergio") StudentDb studentDb, Themes themes) {
         List<Themes> theme = List.of(themes);
+        Set<StudentDb> studentDbs = Set.of(studentDb);
         Group group = new Group();
+        group.setStudents(studentDbs);
         group.setId(1);
         group.setName("Second");
         group.setThem(theme);
@@ -29,15 +34,17 @@ public class JavaBasedConfig {
         return salary;
     }
 
-//    @Bean
-//    public StudentDb ahmed() {
-//        StudentDb ahmed = new StudentDb();
-//        ahmed.setAge(87);
-//        ahmed.setId(12);
-//        ahmed.setPassword("dfgh");
-//        ahmed.setLogin("rty");
-//        return ahmed;
-//    }
+    @CustomStringQualifier(name = "sergio")
+    @Bean
+    public StudentDb sergio() {
+        StudentDb sergio = new StudentDb();
+        sergio.setName("Serg");
+        sergio.setAge(87);
+        sergio.setId(120);
+        sergio.setPassword("serg");
+        sergio.setLogin("Serg");
+        return sergio;
+    }
 //
 //    @Bean
 //    public StudentDb ivan() {
