@@ -4,8 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import vasilizas.bean.qualifiers.ZauchQualifier;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -20,8 +18,8 @@ public class Group implements Serializable {
 
     private static final Logger log = LoggerFactory.getLogger(Group.class);
     // private TeacherDb vasili;
-    @Autowired
-    @ZauchQualifier
+//    @Autowired
+//    @ZauchQualifier
     private TeacherDb teacher;
     private Integer id;
     private String name;
@@ -39,7 +37,7 @@ public class Group implements Serializable {
     @Override
     public String toString() {
         return "Group{" +
-                "teacherDb=" + teacher.getName() +
+                "teacherDb=" + teacher +
                 ", name='" + name + '\'' +
                 ", students=" + students +
                 ", them=" + them +
