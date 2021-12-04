@@ -1,15 +1,16 @@
 package vasilizas.config;
 
 import org.springframework.context.annotation.Bean;
-import vasilizas.bean.db.Group;
-import vasilizas.bean.db.Salary;
-import vasilizas.bean.db.StudentDb;
-import vasilizas.bean.db.TeacherDb;
-import vasilizas.bean.db.Themes;
+import org.springframework.context.annotation.Configuration;
+import vasilizas.bean.Group;
+import vasilizas.bean.Salary;
+import vasilizas.bean.StudentDb;
+import vasilizas.bean.TeacherDb;
+import vasilizas.bean.Themes;
 
 import java.math.BigDecimal;
 
-
+@Configuration
 public class JavaBasedConfig {
     @Bean
     public Group group() {

@@ -12,7 +12,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
   >
 <!--       default-init-method="init" default-destroy-method="destroy">-->
 
-    <bean id="bakke" class="vasilizas.bean.db.StudentDb" c:grade-ref="marks" c:groups-ref="group">
+    <bean id="bakke" class="vasilizas.bean.StudentDb" c:grade-ref="marks" c:groups-ref="group">
         <constructor-arg name="id" value="1"/>
         <constructor-arg name="name" value="Bakke"/>
         <constructor-arg name="age" value="25"/>
@@ -20,14 +20,14 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <constructor-arg name="password" value="passwordBakke"/>
     </bean>
 
-    <bean id="theme" class="vasilizas.bean.db.Themes">
+    <bean id="theme" class="vasilizas.bean.Themes">
         <property name="id" value="1"/>
         <property name="themegroup" value="Running"/>
         <property name="idgroup" value="1"/>
         <property name="group" ref="group"/>
     </bean>
 
-<bean id="group" class="vasilizas.bean.db.Group " init-method="start" destroy-method="finish">
+<bean id="group" class="vasilizas.bean.Group " init-method="start" destroy-method="finish">
     <property name="id" value="1"/>
     <property name="name" value="First"/>
     <property name="teacherDb" ref="vasili"/>
@@ -39,7 +39,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 <!--</property>-->
 </bean>
 
-    <bean id="marks" class="vasilizas.bean.db.Marks">
+    <bean id="marks" class="vasilizas.bean.Marks">
         <property name="id" value="1"/>
         <property name="grade">
             <list>
@@ -49,7 +49,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         </property>
     </bean>
 
-        <bean id="vasili" class="vasilizas.bean.db.TeacherDb"  p:group-ref="group" >
+        <bean id="vasili" class="vasilizas.bean.TeacherDb" p:group-ref="group" >
             <constructor-arg name="id" value="1"/>
             <constructor-arg name="name" value="Vasili"/>
             <constructor-arg name="age" value="34"/>
@@ -58,7 +58,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
             <constructor-arg name="salary"  ref="salary"/>
     </bean>
 
-    <bean id="salary" class="vasilizas.bean.db.Salary">
+    <bean id="salary" class="vasilizas.bean.Salary">
         <constructor-arg name="id" value="1"/>
         <constructor-arg name="salary" value="5000"/>
     </bean>

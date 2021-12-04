@@ -1,4 +1,4 @@
-package vasilizas.bean.qualifiers;
+package vasilizas.qualifiers;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 

@@ -4,11 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import vasilizas.bean.db.Group;
-import vasilizas.bean.db.Salary;
-import vasilizas.bean.db.StudentDb;
-import vasilizas.bean.db.TeacherDb;
-import vasilizas.bean.db.Themes;
+import vasilizas.bean.Group;
+import vasilizas.bean.Salary;
+import vasilizas.bean.StudentDb;
+import vasilizas.bean.TeacherDb;
+import vasilizas.bean.Themes;
 
 public class RunWithXML {
     private static final Logger log = LoggerFactory.getLogger("!!!! Spring : ");

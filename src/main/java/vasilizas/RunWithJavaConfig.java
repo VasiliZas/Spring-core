@@ -4,18 +4,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import vasilizas.bean.db.Group;
-import vasilizas.bean.db.Salary;
-import vasilizas.bean.db.StudentDb;
-import vasilizas.bean.db.TeacherDb;
-import vasilizas.bean.db.Themes;
-import vasilizas.config.JavaBasedConfig;
+import vasilizas.bean.Group;
+import vasilizas.bean.Salary;
+import vasilizas.bean.StudentDb;
+import vasilizas.bean.TeacherDb;
+import vasilizas.bean.Themes;
 
 public class RunWithJavaConfig {
     private static final Logger log = LoggerFactory.getLogger("!!!! Spring : ");
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(JavaBasedConfig.class);
+        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext("vasilizas");
         context.registerShutdownHook();
 
         StudentDb ahmed = (StudentDb) context.getBean("ahmed");
@@ -35,7 +34,5 @@ public class RunWithJavaConfig {
 
         Themes themes = context.getBean("themes", Themes.class);
         log.info("Theme {}", themes);
-
     }
-
 }
