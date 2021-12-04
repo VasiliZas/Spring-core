@@ -7,15 +7,17 @@ import vasilizas.bean.Salary;
 import vasilizas.bean.Themes;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Configuration
 public class JavaBasedConfig {
     @Bean
-    public Group group() {
+    public Group group(Themes themes) {
+        List<Themes> theme = List.of(themes);
         Group group = new Group();
         group.setId(1);
         group.setName("Second");
-        group.setThem(null);
+        group.setThem(theme);
         return group;
     }
 
