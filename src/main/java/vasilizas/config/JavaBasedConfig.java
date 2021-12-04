@@ -9,21 +9,31 @@ import vasilizas.bean.Themes;
 import vasilizas.qualifiers.CustomStringQualifier;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Configuration
 public class JavaBasedConfig {
     @Bean
-    public Group group(@CustomStringQualifier(name = "sergio") StudentDb studentDb, Themes themes) {
+    //public Group group(@CustomStringQualifier(name = "sergio") StudentDb studentDb, Themes themes,) {
+        public Group group(Set<StudentDb> students, Themes themes) {
         List<Themes> theme = List.of(themes);
-        Set<StudentDb> studentDbs = Set.of(studentDb);
+        //Set<StudentDb> studentDbs = Set.of(studentDb);
         Group group = new Group();
-        group.setStudents(studentDbs);
+        group.setStudents(students);
         group.setId(1);
         group.setName("Second");
         group.setThem(theme);
         return group;
+    }
+
+    @Bean
+    public Set<StudentDb> students(StudentDb sergio, StudentDb punGiMun) {
+        Set<StudentDb> students = new HashSet<>();
+        students.add(sergio);
+        students.add(punGiMun);
+        return students;
     }
 
     @Bean
@@ -45,16 +55,17 @@ public class JavaBasedConfig {
         sergio.setLogin("Serg");
         return sergio;
     }
-//
-//    @Bean
-//    public StudentDb ivan() {
-//        StudentDb ivan = new StudentDb();
-//        ivan.setAge(77);
-//        ivan.setId(11);
-//        ivan.setPassword("ivan");
-//        ivan.setLogin("IVAN");
-//        return ivan;
-//    }
+
+    @Bean
+    public StudentDb punGiMun() {
+        StudentDb punGiMun = new StudentDb();
+        punGiMun.setAge(47);
+        punGiMun.setId(13);
+        punGiMun.setPassword("punGiMun");
+        punGiMun.setLogin("punGiMun");
+        punGiMun.setName("Pun Gi Mun");
+        return punGiMun;
+    }
 
     @Bean
     public Themes themes() {
