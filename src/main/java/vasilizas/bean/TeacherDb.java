@@ -4,7 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -14,7 +19,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TeacherDb extends MyAbstractEntity {
-
+    private final Logger log = LoggerFactory.getLogger(TeacherDb.class);
     private Group group;
     private List<Salary> salary = new LinkedList<>();
 
@@ -52,5 +57,18 @@ public class TeacherDb extends MyAbstractEntity {
                 ", age = " + getAge() +
                 ", salary = " + salary +
                 ", group = " + group;
+    }
+
+    @PostConstruct
+    public void start() {
+        log.info("!!!!!! Teacher has been started. !!!!!");
+    }
+
+
+    @PreDestroy
+    public String finish() {
+        String str = "!!!!! Teacher  has been finished. !!!!!!!";
+        log.info(str);
+        return str;
     }
 }
