@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -20,11 +21,14 @@ public class Group implements Serializable {
     // private TeacherDb vasili;
 //    @Autowired
 //    @ZauchQualifier
+    @Autowired
     private TeacherDb teacher;
     private Integer id;
     private String name;
+    @Autowired
     private Set<StudentDb> students = new HashSet<>();
-    private List<Themes> them = new LinkedList<>();
+    @Autowired
+    private Themes them;
 
     public void start() {
         log.info("Group {}", name + " has been init.");

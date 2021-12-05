@@ -30,7 +30,7 @@ public Marks marks(){
     }
 
 //    @CustomStringQualifier(name = "Ahmed")
-    @Bean
+    @Bean()
     public StudentDb ahmed(@CustomStringQualifier(name = "ahmed") List<Marks> marks) {
         StudentDb ahmed = new StudentDb();
         ahmed.setGrade(marks);

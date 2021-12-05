@@ -18,21 +18,21 @@ public class RunWithJavaConfig {
         context.registerShutdownHook();
 
         StudentDb ahmed =  context.getBean("ahmed", StudentDb.class);
-        log.info("Student {}", ahmed);
+        log.info("Student info: {}", ahmed);
 
         StudentDb ivan =  context.getBean("ivan", StudentDb.class);
-        log.info("Student {}", ivan);
+        log.info("Student info: {}", ivan);
 
         TeacherDb thomas =  context.getBean("thomas", TeacherDb.class);
-        log.info("Teacher {}", thomas);
+        log.info("Teacher info: {}", thomas);
 
         Salary salary = context.getBean("salary", Salary.class);
-        log.info("Salary {}", salary);
+        log.info("Salary info: {}", salary);
 
         Group group = context.getBean("group", Group.class);
-        log.info("Group {}", group);
+        log.info("Group info: {}", group);
 
         Themes themes = context.getBean("themes", Themes.class);
-        log.info("Theme {}", themes);
+        log.info("Theme info: {}", themes);
     }
 }
