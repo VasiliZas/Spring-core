@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -16,6 +17,7 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
+@Component
 public class Group implements Serializable {
 
     private static final Logger log = LoggerFactory.getLogger(Group.class);

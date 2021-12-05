@@ -16,18 +16,18 @@ import java.util.Set;
 
 @Configuration
 public class JavaBasedConfig {
-    @Bean
-    //public Group group(@CustomStringQualifier(name = "sergio") StudentDb studentDb, Themes themes,) {
-        public Group group(Set<StudentDb> students) {
-
-        //Set<StudentDb> studentDbs = Set.of(studentDb);
-        Group group = new Group();
-        group.setStudents(students);
-        group.setId(1);
-        group.setName("Second");
-       // group.setThem(themes);
-        return group;
-    }
+//    @Bean
+//    //public Group group(@CustomStringQualifier(name = "sergio") StudentDb studentDb, Themes themes,) {
+//        public Group group(Set<StudentDb> students) {
+//
+//        //Set<StudentDb> studentDbs = Set.of(studentDb);
+//        Group group = new Group();
+//        group.setStudents(students);
+//        group.setId(1);
+//        group.setName("Second");
+//       // group.setThem(themes);
+//        return group;
+//    }
 
 //    @Bean
 //    public Set<StudentDb> students(StudentDb sergio, StudentDb punGiMun) {

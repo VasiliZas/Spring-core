@@ -46,4 +46,4 @@ public class TeacherConfig {
         thomas.setName("Thomas");
         return thomas;
     }
-}
+  }
