@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -19,6 +20,7 @@ import java.util.Objects;
 @AllArgsConstructor
 public class TeacherDb extends MyAbstractEntity {
     private final Logger log = LoggerFactory.getLogger(TeacherDb.class);
+   // @Autowired
     private Group group;
     private List<Salary> salary = new LinkedList<>();
 
@@ -55,7 +57,7 @@ public class TeacherDb extends MyAbstractEntity {
                 ", password = " + getPassword() +
                 ", age = " + getAge() +
                 ", salary = " + salary +
-                ", group = " + group;
+                ", group = " + group.getName();
     }
 
     @PostConstruct
