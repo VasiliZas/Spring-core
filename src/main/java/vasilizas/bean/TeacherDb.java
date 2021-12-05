@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -62,12 +61,13 @@ public class TeacherDb extends MyAbstractEntity {
     @PostConstruct
     public void start() {
         log.info("!!!!!! Teacher has been started. !!!!!");
+        log.info("!!!!!! Teacher " + this.getName() + " has been started. !!!!!");
     }
 
 
     @PreDestroy
     public String finish() {
-        String str = "!!!!! Teacher  has been finished. !!!!!!!";
+        String str = "!!!!! Teacher " + this.getName() + "  has been finished. !!!!!!!";
         log.info(str);
         return str;
     }
