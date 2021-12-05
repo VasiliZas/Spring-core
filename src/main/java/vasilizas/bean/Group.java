@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -26,6 +27,7 @@ public class Group implements Serializable {
     private Integer id;
     private String name;
     @Autowired
+    @Value("#{ahmed}")
     private Set<StudentDb> students = new HashSet<>();
     @Autowired
     private Themes them;
