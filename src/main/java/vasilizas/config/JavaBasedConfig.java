@@ -2,17 +2,12 @@ package vasilizas.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import vasilizas.bean.Group;
 import vasilizas.bean.Salary;
 import vasilizas.bean.StudentDb;
 import vasilizas.bean.Themes;
 import vasilizas.qualifiers.CustomStringQualifier;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Configuration
 public class JavaBasedConfig {
