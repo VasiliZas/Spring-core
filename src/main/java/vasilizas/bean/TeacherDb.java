@@ -62,7 +62,6 @@ public class TeacherDb extends MyAbstractEntity {
 
     @PostConstruct
     public void start() {
-        log.info("!!!!!! Teacher has been started. !!!!!");
         log.info("!!!!!! Teacher " + this.getName() + " has been started. !!!!!");
     }
 
