@@ -33,7 +33,7 @@ public class TeacherConfig {
     }
 
     @Bean
-    public TeacherDb thomas(@CustomClassQualifier(clazz = Salary.class) Salary salary, @Autowired Group group) {
+    public TeacherDb thomas(@CustomClassQualifier(clazz = Salary.class) Salary salary,  Group group) {
         List<Salary> salaries = List.of(salary);
         TeacherDb thomas = new TeacherDb();
         thomas.setGroup(null);
