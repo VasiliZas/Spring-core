@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byType"
+>
+    <!--       default-init-method="init" default-destroy-method="destroy">-->
+
+    <context:annotation-config/>
+    <context:property-placeholder location= "students.properties"/>
+
+    <bean id="pavel" class="vasilizas.bean.db.Zauch">
+<!--        <qualifier value="zauch-qualifier"/>-->
+        <qualifier type="vasilizas.bean.qualifiers.ZauchQualifier"/>
+        <property name="id" value="55"/>
+        <property name="name" value="Pavel"/>
+        <property name="age" value="110"/>
+        <property name="login" value="login"/>
+        <property name="password" value="pasww"/>
+    </bean>
+
+    <bean id="bakke" class="vasilizas.bean.db.StudentDb" c:grade-ref="marks" >
+        <constructor-arg name="id" value="1"/>
+        <constructor-arg name="name" value="Bakke"/>
+        <constructor-arg name="age" value="25"/>
+        <constructor-arg name="login" value="loginBakke"/>
+        <constructor-arg name="password" value="passwordBakke"/>
+    </bean>
+
+    <bean id="petr" class="vasilizas.bean.db.StudentDb" >
+        <property name="id" value="${petr.id}"/>
+        <property name="name" value="${petr.name}"/>
+        <property name="groups" ref="group"/>
+        <property name="grade" ref="marks2"/>
+        <property name="age" value="${petr.age}"/>
+        <property name="login" value="loginPetr"/>
+        <property name="password" value="passwordPetr"/>
+
+    </bean>
+
+    <bean id="theme" class="vasilizas.bean.db.Themes">
+        <property name="id" value="1"/>
+        <property name="themegroup" value="Running"/>
+        <property name="idgroup" value="1"/>
+        <property name="group" ref="group"/>
+    </bean>
+
+    <bean id="group" class="vasilizas.bean.db.Group"  init-method="start" destroy-method="finish">
+        <property name="id" value="1"/>
+        <property name="name" value="First"/>
+<!--        <property name="teacherDb" ref="vasili"/>-->
+        <property name="them" ref="theme"/>
+        <!--    <property name="students">-->
+        <!--&lt;!&ndash;    <set>&ndash;&gt;-->
+        <!--&lt;!&ndash;        <ref bean="bakke"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;    </set>&ndash;&gt;-->
+        <!--</property>-->
+    </bean>
+
+    <bean id="marks" class="vasilizas.bean.db.Marks">
+        <property name="id" value="1"/>
+        <property name="grade">
+            <list>
+                <value>88</value>
+                <value>100</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="marks2" class="vasilizas.bean.db.Marks">
+        <property name="id" value="2"/>
+        <property name="grade">
+            <list>
+                <value>44</value>
+                <value>57</value>
+            </list>
+        </property>
+    </bean>
+
+<!--    <bean id="vasili" class="vasilizas.bean.db.TeacherDb"  p:group-ref="group" >-->
+<!--        <constructor-arg name="id" value="1"/>-->
+<!--        <constructor-arg name="name" value="Vasili"/>-->
+<!--        <constructor-arg name="age" value="34"/>-->
+<!--        <constructor-arg name="login" value="loginVasili"/>-->
+<!--        <constructor-arg name="password" value="passwordVasili"/>-->
+<!--        <constructor-arg name="salary"  ref="salary"/>-->
+<!--    </bean>-->
+
+    <bean id="salary" class="vasilizas.bean.db.Salary">
+        <constructor-arg name="id" value="1"/>
+        <constructor-arg name="salary" value="5000"/>
+    </bean>
+
+</beans>
