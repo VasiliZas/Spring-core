@@ -1,11 +1,12 @@
-package vasilizas.bean.db;
+package vasilizas.bean;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import vasilizas.bean.qualifiers.ZauchQualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -16,17 +17,22 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
+@Component
 public class Group implements Serializable {
 
     private static final Logger log = LoggerFactory.getLogger(Group.class);
     // private TeacherDb vasili;
+//    @Autowired
+//    @ZauchQualifier
     @Autowired
-    @ZauchQualifier
     private TeacherDb teacher;
     private Integer id;
     private String name;
+    @Autowired
+    @Value("#{ahmed}")
     private Set<StudentDb> students = new HashSet<>();
-    private List<Themes> them = new LinkedList<>();
+    @Autowired
+    private Themes them;
 
     public void start() {
         log.info("Group {}", name + " has been init.");
@@ -39,7 +45,7 @@ public class Group implements Serializable {
     @Override
     public String toString() {
         return "Group{" +
-                "teacherDb=" + teacher.getName() +
+                "teacherDb=" + teacher +
                 ", name='" + name + '\'' +
                 ", students=" + students +
                 ", them=" + them +

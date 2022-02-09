@@ -1,4 +1,4 @@
-package vasilizas.bean.db;
+package vasilizas.bean;
 
 
 import lombok.Data;

@@ -16,9 +16,9 @@
     <context:annotation-config/>
     <context:property-placeholder location= "students.properties"/>
 
-    <bean id="pavel" class="vasilizas.bean.db.Zauch">
+    <bean id="pavel" class="vasilizas.bean.Zauch">
 <!--        <qualifier value="zauch-qualifier"/>-->
-        <qualifier type="vasilizas.bean.qualifiers.ZauchQualifier"/>
+        <qualifier type="vasilizas.qualifiers.ZauchQualifier"/>
         <property name="id" value="55"/>
         <property name="name" value="Pavel"/>
         <property name="age" value="110"/>
@@ -26,7 +26,7 @@
         <property name="password" value="pasww"/>
     </bean>
 
-    <bean id="bakke" class="vasilizas.bean.db.StudentDb" c:grade-ref="marks" >
+    <bean id="bakke" class="vasilizas.bean.StudentDb" c:grade-ref="marks" >
         <constructor-arg name="id" value="1"/>
         <constructor-arg name="name" value="Bakke"/>
         <constructor-arg name="age" value="25"/>
@@ -34,7 +34,7 @@
         <constructor-arg name="password" value="passwordBakke"/>
     </bean>
 
-    <bean id="petr" class="vasilizas.bean.db.StudentDb" >
+    <bean id="petr" class="vasilizas.bean.StudentDb" >
         <property name="id" value="${petr.id}"/>
         <property name="name" value="${petr.name}"/>
         <property name="groups" ref="group"/>
@@ -45,14 +45,14 @@
 
     </bean>
 
-    <bean id="theme" class="vasilizas.bean.db.Themes">
+    <bean id="theme" class="vasilizas.bean.Themes">
         <property name="id" value="1"/>
         <property name="themegroup" value="Running"/>
         <property name="idgroup" value="1"/>
         <property name="group" ref="group"/>
     </bean>
 
-    <bean id="group" class="vasilizas.bean.db.Group"  init-method="start" destroy-method="finish">
+    <bean id="group" class="vasilizas.bean.Group" init-method="start" destroy-method="finish">
         <property name="id" value="1"/>
         <property name="name" value="First"/>
 <!--        <property name="teacherDb" ref="vasili"/>-->
@@ -64,7 +64,7 @@
         <!--</property>-->
     </bean>
 
-    <bean id="marks" class="vasilizas.bean.db.Marks">
+    <bean id="marks" class="vasilizas.bean.Marks">
         <property name="id" value="1"/>
         <property name="grade">
             <list>
@@ -74,7 +74,7 @@
         </property>
     </bean>
 
-    <bean id="marks2" class="vasilizas.bean.db.Marks">
+    <bean id="marks2" class="vasilizas.bean.Marks">
         <property name="id" value="2"/>
         <property name="grade">
             <list>
@@ -84,7 +84,7 @@
         </property>
     </bean>
 
-<!--    <bean id="vasili" class="vasilizas.bean.db.TeacherDb"  p:group-ref="group" >-->
+<!--    <bean id="vasili" class="vasilizas.bean.TeacherDb"  p:group-ref="group" >-->
 <!--        <constructor-arg name="id" value="1"/>-->
 <!--        <constructor-arg name="name" value="Vasili"/>-->
 <!--        <constructor-arg name="age" value="34"/>-->
@@ -93,7 +93,7 @@
 <!--        <constructor-arg name="salary"  ref="salary"/>-->
 <!--    </bean>-->
 
-    <bean id="salary" class="vasilizas.bean.db.Salary">
+    <bean id="salary" class="vasilizas.bean.Salary">
         <constructor-arg name="id" value="1"/>
         <constructor-arg name="salary" value="5000"/>
     </bean>

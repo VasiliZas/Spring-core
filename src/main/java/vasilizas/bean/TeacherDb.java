@@ -1,10 +1,15 @@
-package vasilizas.bean.db;
+package vasilizas.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -14,7 +19,8 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TeacherDb extends MyAbstractEntity {
-
+    private final Logger log = LoggerFactory.getLogger(TeacherDb.class);
+   // @Autowired
     private Group group;
     private List<Salary> salary = new LinkedList<>();
 
@@ -51,6 +57,19 @@ public class TeacherDb extends MyAbstractEntity {
                 ", password = " + getPassword() +
                 ", age = " + getAge() +
                 ", salary = " + salary +
-                ", group = " + group;
+                ", group = " + group.getName();
+    }
+
+    @PostConstruct
+    public void start() {
+        log.info("!!!!!! Teacher " + this.getName() + " has been started. !!!!!");
+    }
+
+
+    @PreDestroy
+    public String finish() {
+        String str = "!!!!! Teacher " + this.getName() + "  has been finished. !!!!!!!";
+        log.info(str);
+        return str;
     }
 }
